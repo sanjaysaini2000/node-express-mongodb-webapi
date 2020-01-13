@@ -1,5 +1,5 @@
 {
-  "name": "ExpressMongoDBWebApi",
+  "name": "node-express-mongodb-webapi",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
