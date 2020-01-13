@@ -41,6 +41,21 @@ router.get("/:id", (req, resp) => {
   });
 });
 
+//DELETE http://localhost:3000/customers/id
+router.delete("/:id", (req, resp) => {
+  let customerId = req.params.id;
+  if (!ObjectId.isValid(customerId))
+    return resp.status(400).send(`Customer not found for id :${customerId}`);
+
+  Customer.deleteOne({ _id: customerId }, (err, docs) => {
+    if (err)
+      console.log(
+        "Error while deleting customers..." + JSON.stringify(err, undefined, 2)
+      );
+    else resp.send(docs);
+  });
+});
+
 //PUT http://localhost:3000/customers/id
 router.put("/:id", (req, resp) => {
   let customerId = req.params.id;
