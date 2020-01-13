@@ -3,17 +3,7 @@ const { Customer } = require("../Models/Customer");
 
 const router = express.Router();
 
-router.use(express.json());
-
 let ObjectId = require("mongoose").Types.ObjectId;
-
-router.get("/test", (req, resp) => {
-  resp.send("hello world from customer...");
-});
-
-router.get("/test/:id", (req, resp) => {
-  resp.send(`hello world from customer id ${req.params.id}`);
-});
 
 //GET http://localhost:3000/customers
 router.get("/", (req, resp) => {
