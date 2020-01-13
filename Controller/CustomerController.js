@@ -47,25 +47,25 @@ router.put("/:id", (req, resp) => {
   if (!ObjectId.isValid(customerId))
     return resp.status(400).send(`Customer not found for id :${customerId}`);
 
-  let cust = new Customer({
-    first_name: req.body.first_name,
-    last_name: req.body.last_name,
-    gender: req.body.gender,
-    age: req.body.age,
-    email: req.body.email
-  });
-
   Customer.findByIdAndUpdate(
     customerId,
-    { $set: cust },
-    { new: true },
+    {
+      $set: {
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        gender: req.body.gender,
+        age: req.body.age,
+        email: req.body.email
+      }
+    },
+    { new: true, useFindAndModify: false },
     (err, doc) => {
       if (err)
         console.log(
           "Error while uppdating customers..." +
             JSON.stringify(err, undefined, 2)
         );
-      else resp.status(200).send(doc);
+      else resp.send(doc);
     }
   );
 });
