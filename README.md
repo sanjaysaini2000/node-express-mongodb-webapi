@@ -20,16 +20,20 @@ Clone or Download the zip file of this repository.
 Open the command window in the folder where you have unzip the web api repository code and run the following command to install all the package dependencies.
 
 ```
-node install
+npm install
 ```
 
 ### Running the Web API
 
-Run the following command to run the web api in the command window.
+Run following command in the command window to run the web api server.
 
 ```
-node index.js
+npm run server
 ```
+
+Or run following command if above one dose'nt work.
+
+`node index.js`
 
 Check out my [article](https://sanjaysaini.tech/create-asp-net-core-3-web-api-using-entity-framework-core/) where I have tested another web api using PostMan. Although web api is different but steps to test any we api are same with PostMan.
 
